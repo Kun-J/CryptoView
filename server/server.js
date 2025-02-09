@@ -9,6 +9,9 @@ const userPortfolio = require("./routes/userPortfolio.js");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const nftRoutes = require('./routes/nft');
+const tokenRoutes = require('./routes/token');
+
 dotenv.config();
 
 const app = express();
@@ -34,6 +37,8 @@ app.use("/api/workouts/", workoutRoutes);
 app.use("/api/portfolio/", userPortfolio);
 app.use("/api/transactions/", transactionsRoutes);
 app.use("/api/users/", usersRoutes);
+app.use('/api/nft/', nftRoutes);
+app.use('/api/token/', tokenRoutes);
 
 //connect to db et lancement du server
 mongoose

@@ -1,22 +1,10 @@
 # CryptoView
-
-## Crypto Trading Platform
-
-This is a simple MERN stack application that displays current prices of cryptocurrencies and allows users to trade them.
-
-**Features:**
-
-- **Real-time Cryptocurrency Prices:** Retrieves and displays the latest prices from a trusted cryptocurrency API.
-- **Trading Functionality:** Allows users to buy and sell cryptocurrencies.
-- **Secure Authentication:** Uses JWT authentication to protect user accounts.
-- **User Dashboard:** Displays trading history, portfolio, and other relevant information.
-
 **Getting Started:**
 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/labs-web3/CryptoView.git
+   git clone https://github.com/Kun-J/CryptoView.git
    ```
 
 2. **Install Dependencies:**
@@ -32,9 +20,10 @@ This is a simple MERN stack application that displays current prices of cryptocu
    - Add the following environment variables:
      ```
      SECRET=cryptoviewsecret
-     MONG_URI=mongodb+srv://salceanu:f34mqJgy29B61Mm7@labsdatabase.5913czx.mongodb.net/?retryWrites=true&w=majority&appName=labsdatabase
+     MONG_URI=your_key
      PORT=5000
      VITE_X_CG_DEMO_API_KEY=CG-1t8kdBZJMA1YUmpjF5nypF6R
+     INFURA_URL=your_api_key
      ```
 
 4. **Start the Server:**
@@ -45,6 +34,73 @@ This is a simple MERN stack application that displays current prices of cryptocu
 
 5. **Access the Application:**
    Open your browser and navigate to `http://localhost:5173`.
+
+
+6. **Testing Guide for API on Postman**<br />
+
+*Task 1*  : NFT Metadata Retrieval API <br />
+Retrieves metadata for a specific NFT by contract address and token ID. Includes caching mechanism to improve performance.
+
+**API Format**
+```
+GET http://localhost:5000/api/nft/{contractAddress}/{tokenId}
+```
+**Example**
+```
+GET http://localhost:5000/api/nft/0xbAbaFdd8045740449a42B788a26E9b3A32F88aC1/1
+```
+**Response Format**
+```
+{
+  status: "success" | "error",
+  data?: {
+    contractAddress: string,
+    tokenId: string,
+    name: string,
+    description: string,
+    imageUrl: string,
+    retrievedAt: Date,
+    createdAt: Date,
+    updatedAt: Date
+  },
+  source?: "cache" | "blockchain",
+  error?: string,
+  message?: string
+}
+```
+**Notes**
+- Supports IPFS URLs automatically
+- Returns source of data (cache/blockchain)
+
+*Task 4* : Token Balance Lookup API <br />
+Retrieves the balance of a specific ERC20 token for a given wallet address.
+
+**API Format**
+```
+GET http://localhost:5000/token/{contractAddress}/balance/{walletAddress}
+```
+**Example**
+```
+GET http://localhost:5000/api/token/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/balance/0x742d35Cc6634C0532925a3b844Bc454e4438f44e
+```
+**Response Format**
+```
+{
+  status: "success" | "error",
+  data?: {
+    contractAddress: string,
+    symbol: string,
+    walletAddress: string,
+    balance: number,
+    decimals: number
+  },
+  error?: string,
+  message?: string
+}
+```
+**Notes**
+Automatically handles token decimals
+Supports any ERC20 token
 
 **Project Structure:**
 
@@ -72,7 +128,6 @@ crypto-trading-platform/
 - **Frontend:** React, Redux, Axios, Tailwind CSS
 - **Backend:** Node.js, Express, MongoDB, JWT
 - **API:** [Cryptocurrency API](https://example.com/api)
-
 **Contributing:**
 
 Contributions are welcome! Please create a pull request with your changes.
