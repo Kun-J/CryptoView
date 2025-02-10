@@ -72,6 +72,14 @@ GET http://localhost:5000/api/nft/0xbAbaFdd8045740449a42B788a26E9b3A32F88aC1/1
 - Supports IPFS URLs automatically
 - Returns source of data (cache/blockchain)
 
+![nftpost1](https://github.com/user-attachments/assets/0782f1d2-bb9b-40ed-8638-f9ba953092cd)
+
+![nft3](https://github.com/user-attachments/assets/2e67de3d-ac01-42ef-9a3c-5b8132f2cc7b)
+
+![nft2](https://github.com/user-attachments/assets/c7e7fab4-ba83-4ae8-80e7-2fb50f27dde9)
+
+![nft1](https://github.com/user-attachments/assets/4e4ab72e-4cf6-4734-9c0c-86bc03efc092)
+
 *Task 4* : Token Balance Lookup API <br />
 Retrieves the balance of a specific ERC20 token for a given wallet address.
 
@@ -101,6 +109,12 @@ GET http://localhost:5000/api/token/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/b
 **Notes**
 Automatically handles token decimals
 Supports any ERC20 token
+
+![TokenBal3](https://github.com/user-attachments/assets/5d426ed6-813b-439f-9471-8b001f89a0bd)
+
+![TokenBal2](https://github.com/user-attachments/assets/398691a7-caf8-4542-bf4c-f957cdc3c41f)
+
+![TokenBal1](https://github.com/user-attachments/assets/0c303624-57a6-402b-8c77-0b41c0ecf7b3)
 
 **Project Structure:**
 
